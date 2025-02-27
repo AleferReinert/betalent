@@ -16,7 +16,12 @@ Projeto desenvolvido durante o processo seletivo da BeTalent.
    ```
     yarn install
    ```
-4. Inicie o servidor de desenvolvimento:
+4. Defina as váriaveis de ambiente como em `.env.example`:
+   ```
+   // .env
+   VITE_API_URL=tobemodified
+   ```
+5. Inicie o servidor de desenvolvimento:
 
    ```
    yarn dev

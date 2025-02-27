@@ -6,9 +6,8 @@ import { Search } from './components/Search'
 
 function App() {
 	const [data, setData] = useState<EmployeeProps[] | []>([])
-
 	useEffect(() => {
-		fetch('http://localhost:3000/employees')
+		fetch(`${import.meta.env.VITE_API_URL}/employees`)
 			.then(res => res.json())
 			.then(res => setData(res))
 	}, [])

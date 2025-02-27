@@ -31,10 +31,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 				<tbody>
 					{employees.map(employee => {
 						return (
-							<tr
-								key={employee.id}
-								className='text-black border-t border-gray-00 [&_td]:py-3 [&_td]:pl-3 bg-white shadow-sm'
-							>
+							<tr key={employee.id} className='text-black border-t border-gray-00 h-12 [&_td]:pl-3 bg-white shadow-sm'>
 								<td>
 									<img src={employee.image} width={34} height={34} className='rounded-full' />
 								</td>
