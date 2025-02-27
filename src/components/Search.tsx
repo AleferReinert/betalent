@@ -10,13 +10,20 @@ interface SearchProps {
 export function Search({ query, setQuery, data, setFilteredDataByQuery }: SearchProps) {
 	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
 		const value = e.target.value
-		const filteredData = data.filter(employee => employee.name.toLowerCase().includes(value.toLowerCase()))
+		const isPhoneSearch = /^[\d+]/.test(value)
+		const sanitizedValue = isPhoneSearch ? value.replace(/[\s\-()]/g, '') : value
+		const filteredData = data.filter(
+			employee =>
+				employee.name.toLowerCase().includes(sanitizedValue.toLowerCase()) ||
+				employee.job.toLowerCase().includes(sanitizedValue.toLowerCase()) ||
+				employee.phone.replace(/[\s\-()]/g, '').includes(sanitizedValue)
+		)
 		setQuery(value)
 		setFilteredDataByQuery(filteredData)
 	}
 
 	return (
-		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] max-w-72'>
+		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] max-w-72 group group-focus-within:border-gray-20'>
 			<input
 				type='text'
 				placeholder='Pesquisar'
