@@ -1,7 +1,29 @@
-export function Search() {
+import { ChangeEvent } from 'react'
+import { EmployeeProps } from './EmployeeTable'
+
+interface SearchProps {
+	query: string
+	setQuery: React.Dispatch<React.SetStateAction<string>>
+	data: [] | EmployeeProps[]
+	setFilteredDataByQuery: React.Dispatch<React.SetStateAction<[] | EmployeeProps[]>>
+}
+export function Search({ query, setQuery, data, setFilteredDataByQuery }: SearchProps) {
+	const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+		const value = e.target.value
+		const filteredData = data.filter(employee => employee.name.toLowerCase().includes(value.toLowerCase()))
+		setQuery(value)
+		setFilteredDataByQuery(filteredData)
+	}
+
 	return (
 		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] max-w-72'>
-			<input type='text' placeholder='Pesquisar' className='text-gray-20 placeholder-gray-20 focus:outline-none' />
+			<input
+				type='text'
+				placeholder='Pesquisar'
+				value={query}
+				className='text-gray-20 placeholder-gray-20 focus:outline-none'
+				onChange={e => handleSearch(e)}
+			/>
 			<button title='Pesquisar' className='cursor-pointer'>
 				<svg
 					className='fill-gray-10'
