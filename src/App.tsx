@@ -3,19 +3,32 @@ import { Container } from './components/Container'
 import { EmployeeProps, EmployeeTable } from './components/EmployeeTable'
 import { Header } from './components/Header'
 import { Search } from './components/Search'
+import staticData from './data/staticData.json'
 
 function App() {
 	const [data, setData] = useState<EmployeeProps[] | []>([])
 	const [query, setQuery] = useState('')
 	const [filteredDataByQuery, setFilteredDataByQuery] = useState<EmployeeProps[] | []>(data)
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		fetch(`${import.meta.env.VITE_API_URL}/employees`)
-			.then(res => res.json())
-			.then(res => {
-				setData(res)
-				setFilteredDataByQuery(res)
-			})
+		const fetchData = async () => {
+			try {
+				const response = await fetch(`${import.meta.env.VITE_API_URL}/employees`)
+				if (!response.ok) throw new Error('Erro ao obter dados da API')
+				const result = await response.json()
+				setData(result)
+				setFilteredDataByQuery(result)
+			} catch (error) {
+				console.error(`Erro ao obter dados da API, carregando dados estáticos. \nErro: ${error}`)
+				setData(staticData)
+				setFilteredDataByQuery(staticData)
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		fetchData()
 	}, [])
 
 	return (
@@ -27,7 +40,13 @@ function App() {
 						<h1 className='font-medium text-xl text-black mb-6 leading-6 sm:mb-0'>Funcionários</h1>
 						<Search query={query} setQuery={setQuery} data={data} setFilteredDataByQuery={setFilteredDataByQuery} />
 					</div>
-					<EmployeeTable employees={filteredDataByQuery} />
+					{loading ? (
+						<p>Buscando dados...</p>
+					) : filteredDataByQuery.length === 0 ? (
+						<p>Nenhum resultado encontrado para "{query}".</p>
+					) : (
+						<EmployeeTable employees={filteredDataByQuery} />
+					)}
 				</Container>
 			</main>
 		</>
