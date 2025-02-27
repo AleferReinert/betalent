@@ -37,5 +37,5 @@ Projeto desenvolvido durante o processo seletivo da BeTalent.
 
 ## URL do Projeto
 
-Explore o projeto no link: [BeTalent](https://todo.vercel.app).
+Explore o projeto no link: [BeTalent](https://betalent.netlify.app).
 
