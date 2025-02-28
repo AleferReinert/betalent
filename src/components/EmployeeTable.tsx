@@ -1,5 +1,6 @@
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
+import React, { useState } from 'react'
 import { formatPhoneNumber } from '../utils/fomatPhoneNumber'
 
 export interface EmployeeProps {
@@ -15,31 +16,97 @@ interface EmployeeTableProps {
 	employees: EmployeeProps[]
 }
 
+function IconArrowDown() {
+	return (
+		<svg width='20' height='11' viewBox='0 0 20 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+			<path d='M1.5 1L10 10L18.5 1' stroke='#0500FF' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
+		</svg>
+	)
+}
+
+interface InfoDetailProps {
+	title: string
+	value: string
+}
+function InfoDetail({ title, value }: InfoDetailProps) {
+	return (
+		<p className='flex justify-between border-b border-dashed border-gray-10 leading-5'>
+			<strong className='font-medium'>{title}</strong>
+			<span>{value}</span>
+		</p>
+	)
+}
+
 export function EmployeeTable({ employees }: EmployeeTableProps) {
+	const [visibleDetails, setVisibleDetails] = useState<{ [key: string]: boolean }>({})
+	const hiddenOnMobile = 'hidden sm:table-cell'
+	const hiddenOnDesktop = 'sm:hidden'
+
+	const toggleDetails = (id: string) => {
+		setVisibleDetails(prev => ({
+			...prev,
+			[id]: !prev[id]
+		}))
+	}
+
 	return employees.length ? (
 		<div className='rounded-t overflow-hidden'>
 			<table className='w-full text-white'>
 				<thead className='uppercase bg-primary text-left'>
 					<tr className='h-12 [&_th]:font-[500] [&_th]:pl-3'>
-						<th>Foto</th>
+						<th className='w-[34px]'>Foto</th>
 						<th>Nome</th>
-						<th>Cargo</th>
-						<th>Data de admissão</th>
-						<th>Telefone</th>
+						<th className={hiddenOnMobile}>Cargo</th>
+						<th className={hiddenOnMobile}>Data de admissão</th>
+						<th className={hiddenOnMobile}>Telefone</th>
+						<th className={hiddenOnDesktop}>
+							<div className='bg-white rounded-full size-2 mx-auto' title='Exibir detalhes'></div>
+						</th>
 					</tr>
 				</thead>
 				<tbody>
 					{employees.map(employee => {
+						const formattedAdmissionDate = format(employee.admission_date, 'dd/MM/yyyy', { locale: ptBR })
+						const formattedPhone = formatPhoneNumber(employee.phone)
+
 						return (
-							<tr key={employee.id} className='text-black border-t border-gray-00 h-12 [&_td]:pl-3 bg-white shadow-sm'>
-								<td>
-									<img src={employee.image} width={34} height={34} className='rounded-full' />
-								</td>
-								<td>{employee.name}</td>
-								<td>{employee.job}</td>
-								<td>{format(employee.admission_date, 'dd/MM/yyyy', { locale: ptBR })}</td>
-								<td>{formatPhoneNumber(employee.phone)}</td>
-							</tr>
+							<React.Fragment key={employee.id}>
+								<tr className='text-black border-t border-gray-00 h-12 [&_td]:pl-3 bg-white shadow-sm'>
+									<td className='w-[34px]'>
+										<img src={employee.image} width={34} height={34} className='rounded-full' />
+									</td>
+									<td>{employee.name}</td>
+									<td className={hiddenOnMobile}>{employee.job}</td>
+									<td className={hiddenOnMobile}>{formattedAdmissionDate}</td>
+									<td className={hiddenOnMobile}>{formattedPhone}</td>
+									<td className={hiddenOnDesktop}>
+										<button
+											className={`${
+												visibleDetails[employee.id] ? 'rotate-180' : ''
+											} w-min block mx-auto cursor-pointer`}
+											title='Exibir detalhes'
+											onClick={() => toggleDetails(employee.id)}
+										>
+											<IconArrowDown />
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td colSpan={6}>
+										<div
+											className={`${
+												visibleDetails[employee.id] ? 'max-h-40' : 'max-h-0'
+											} transition-all overflow-hidden`}
+										>
+											<div className='space-y-3 px-3 py-7 bg-white text-black'>
+												<InfoDetail title='Cargo' value={employee.job} />
+												<InfoDetail title='Data de admissão' value={formattedAdmissionDate} />
+												<InfoDetail title='Telefone' value={formattedPhone} />
+											</div>
+										</div>
+									</td>
+								</tr>
+							</React.Fragment>
 						)
 					})}
 				</tbody>

@@ -2,6 +2,10 @@
 
 Projeto desenvolvido durante o processo seletivo da BeTalent.
 
+## Requisitos
+
+Disponível em [github.com/BeMobile/teste-pratico-frontend](https://github.com/BeMobile/teste-pratico-frontend).
+
 ## Começando
 
 1. Clone o repositório:

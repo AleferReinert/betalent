@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+
 @font-face {
 	font-family: 'Helvetica Neue Roman';
 	src: url('assets/fonts/HelveticaNeue-Roman.woff2') format('woff2'),
@@ -7,6 +8,7 @@
 	font-style: normal;
 	font-display: swap;
 }
+
 @font-face {
 	font-family: 'Helvetica Neue Medium';
 	src: url('assets/fonts/HelveticaNeue-Medium.woff2') format('woff2'),

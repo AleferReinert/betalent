@@ -14,7 +14,8 @@ function App() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetch(`${import.meta.env.VITE_API_URL}/employees`)
+				const endpoint = import.meta.env.VITE_API_URL + '/employees'
+				const response = await fetch(endpoint)
 				if (!response.ok) throw new Error('Erro ao obter dados da API')
 				const result = await response.json()
 				setData(result)
