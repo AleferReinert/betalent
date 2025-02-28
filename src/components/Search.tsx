@@ -40,12 +40,12 @@ export function Search({ query, data, setQuery, setFilteredDataByQuery }: Search
 	}
 
 	return (
-		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] max-w-72 group group-focus-within:border-gray-20'>
+		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] sm:max-w-72 group group-focus-within:border-gray-20'>
 			<input
 				type='text'
 				placeholder='Pesquisar'
 				value={query}
-				className='text-gray-20 placeholder-gray-20 focus:outline-none'
+				className='text-gray-20 placeholder-gray-20 focus:outline-none translate-y-[1px]'
 				onChange={e => handleSearch(e)}
 			/>
 			<button title='Pesquisar' className='cursor-pointer'>

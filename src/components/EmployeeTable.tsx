@@ -53,7 +53,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 		<div className='rounded-t overflow-hidden'>
 			<table className='w-full text-white'>
 				<thead className='uppercase bg-primary text-left'>
-					<tr className='h-12 [&_th]:font-[500] [&_th]:pl-3'>
+					<tr className='h-12 [&_th]:font-[500] [&_th]:pl-3 translate-y-[1px]'>
 						<th className='w-[34px]'>Foto</th>
 						<th>Nome</th>
 						<th className={hiddenOnMobile}>Cargo</th>
@@ -71,7 +71,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 
 						return (
 							<React.Fragment key={employee.id}>
-								<tr className='text-black border-t border-gray-00 h-12 [&_td]:pl-3 bg-white shadow-sm'>
+								<tr className='text-black border-t border-gray-00 h-12 [&_td]:pl-3 bg-white shadow-sm translate-y-[1px]'>
 									<td className='w-[34px]'>
 										<img src={employee.image} width={34} height={34} className='rounded-full' />
 									</td>
@@ -91,7 +91,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 										</button>
 									</td>
 								</tr>
-								<tr>
+								<tr className='translate-y-[-1px]'>
 									<td colSpan={6}>
 										<div
 											className={`${
