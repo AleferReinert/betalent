@@ -66,7 +66,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 							<React.Fragment key={employee.id}>
 								<tr className='text-black border-t border-gray-00 h-12 [&_td]:pl-3 bg-white shadow-sm translate-y-[1px]'>
 									<td className='w-[34px]'>
-										<img src={employee.image} width={34} height={34} className='rounded-full' />
+										<img src={employee.image} width={34} height={34} alt='Foto de perfil' className='rounded-full' />
 									</td>
 									<td>{employee.name}</td>
 									<td className={hiddenOnMobile}>{employee.job}</td>

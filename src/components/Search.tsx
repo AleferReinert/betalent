@@ -26,7 +26,7 @@ export function Search({ query, data, setQuery, setFilteredDataByQuery }: Search
 	}
 
 	return (
-		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] sm:max-w-72 transition focus-within:border-gray-20'>
+		<div className='group bg-white border border-gray-10 rounded pl-4 h-12 grid grid-cols-[1fr_auto] sm:w-72 transition focus-within:border-gray-20'>
 			<input
 				type='text'
 				placeholder='Pesquisar'
@@ -34,8 +34,8 @@ export function Search({ query, data, setQuery, setFilteredDataByQuery }: Search
 				className='text-gray-20 placeholder-gray-20 focus:outline-none translate-y-[1px]'
 				onChange={e => handleSearch(e)}
 			/>
-			<button title='Pesquisar' className='cursor-pointer'>
-				<SearchIcon />
+			<button title='Pesquisar' className='cursor-pointer px-4'>
+				<SearchIcon className='transition fill-gray-10 group-focus-within:fill-gray-20' />
 			</button>
 		</div>
 	)
