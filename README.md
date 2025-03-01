@@ -4,9 +4,13 @@ Projeto desenvolvido durante o processo seletivo da BeTalent.
 
 Consiste em construir a visualização de uma tabela com dados que virão de uma API simulada, em json-server.
 
-## Requisitos
+###### Requisitos:
 
-Disponível em [github.com/BeMobile/teste-pratico-frontend](https://github.com/BeMobile/teste-pratico-frontend).
+[github.com/bemobile/teste-pratico-frontend](https://github.com/bemobile/teste-pratico-frontend)
+
+###### Layout:
+
+[Visualizar no Figma](https://www.figma.com/design/yw6th52zE9bubewc6ayTg5/Teste-T%C3%A9cnico-Frontend-BeTalent?node-id=1-4&p=f&t=sWXq8uMvn5ZK8yKr-0)
 
 ## Começando
 
@@ -42,11 +46,15 @@ Disponível em [github.com/BeMobile/teste-pratico-frontend](https://github.com/B
 - **Vite:** Build tool rápida e otimizada para desenvolvimento front-end moderno.
 - **vite-plugin-svgr:** Para importar SVG's como componentes React.
 
-## Back-end
+## API
 
 Disponível em [github.com/AleferReinert/betalent-api](https://github.com/AleferReinert/betalent-api)
 
+## Desempenho 100%
+
+[PageSpeed Insights](https://pagespeed.web.dev/analysis/https-betalent-netlify-app/j1qo5ou6ea?form_factor=mobile)
+
 ## URL do Projeto
 
-Explore o projeto no link: [BeTalent](https://betalent.netlify.app)
+Explore o projeto no link: [BeTalent](https://betalent.netlify.app).
 
