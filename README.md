@@ -35,11 +35,12 @@ Disponível em [github.com/BeMobile/teste-pratico-frontend](https://github.com/B
 
 ## Tecnologias Utilizadas
 
-- **Date-fns:** Biblioteca para manipulação e formatação de datas em JavaScript.
+- **date-fns:** Biblioteca para manipulação e formatação de datas em JavaScript.
 - **React:** Biblioteca JavaScript para construir interfaces de usuário.
 - **Tailwind CSS:** Framework de utilidades CSS para estilização rápida e eficiente.
 - **TypeScript:** Superconjunto de JavaScript que adiciona tipagem estática ao código.
 - **Vite:** Build tool rápida e otimizada para desenvolvimento front-end moderno.
+- **vite-plugin-svgr:** Para importar SVG's como componentes React.
 
 ## URL do Projeto
 

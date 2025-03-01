@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react'
-import searchIcon from '../assets/icons/search.svg'
+import SearchIcon from '../assets/icons/search.svg?react'
 import { EmployeeProps } from './EmployeeTable'
 
 interface SearchProps {
@@ -26,7 +26,7 @@ export function Search({ query, data, setQuery, setFilteredDataByQuery }: Search
 	}
 
 	return (
-		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] sm:max-w-72'>
+		<div className='bg-white border border-gray-10 rounded px-4 h-12 grid grid-cols-[1fr_auto] sm:max-w-72 transition focus-within:border-gray-20'>
 			<input
 				type='text'
 				placeholder='Pesquisar'
@@ -35,7 +35,7 @@ export function Search({ query, data, setQuery, setFilteredDataByQuery }: Search
 				onChange={e => handleSearch(e)}
 			/>
 			<button title='Pesquisar' className='cursor-pointer'>
-				<img src={searchIcon} width={18} height={18} />
+				<SearchIcon />
 			</button>
 		</div>
 	)

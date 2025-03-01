@@ -12,6 +12,7 @@ function App() {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
+		// Fetches data from API. If error occurs, loads static data.
 		const fetchData = async () => {
 			try {
 				const endpoint = import.meta.env.VITE_API_URL + '/employees'

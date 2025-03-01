@@ -1,7 +1,7 @@
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 import React, { useState } from 'react'
-import arrowDownIcon from '../assets/icons/arrowDown.svg'
+import ArrowDownIcon from '../assets/icons/arrowDown.svg?react'
 import { formatPhoneNumber } from '../utils/fomatPhoneNumber'
 
 export interface EmployeeProps {
@@ -78,7 +78,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 											title='Exibir detalhes'
 											onClick={() => toggleDetails(employee.id)}
 										>
-											<img src={arrowDownIcon} width={20} height={11} />
+											<ArrowDownIcon width={20} height={11} />
 										</button>
 									</td>
 								</tr>

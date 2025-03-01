@@ -1,3 +1,4 @@
+import Logo from '../assets/icons/logo.svg?react'
 import { Container } from './Container'
 
 export function Header() {
@@ -5,7 +6,7 @@ export function Header() {
 		<header className='bg-white py-6 shadow-md'>
 			<Container>
 				<a href='/' title='Início'>
-					<img src='/logo.svg' alt='BeTalent' width={71} height={14} />
+					<Logo width={71} height={14} />
 				</a>
 			</Container>
 		</header>
