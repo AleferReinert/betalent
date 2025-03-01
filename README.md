@@ -2,6 +2,8 @@
 
 Projeto desenvolvido durante o processo seletivo da BeTalent.
 
+Consiste em construir a visualização de uma tabela com dados que virão de uma API simulada, em json-server.
+
 ## Requisitos
 
 Disponível em [github.com/BeMobile/teste-pratico-frontend](https://github.com/BeMobile/teste-pratico-frontend).

@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 import React, { useState } from 'react'
+import arrowDownIcon from '../assets/icons/arrowDown.svg'
 import { formatPhoneNumber } from '../utils/fomatPhoneNumber'
 
 export interface EmployeeProps {
@@ -14,14 +15,6 @@ export interface EmployeeProps {
 
 interface EmployeeTableProps {
 	employees: EmployeeProps[]
-}
-
-function IconArrowDown() {
-	return (
-		<svg width='20' height='11' viewBox='0 0 20 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
-			<path d='M1.5 1L10 10L18.5 1' stroke='#0500FF' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round' />
-		</svg>
-	)
 }
 
 interface InfoDetailProps {
@@ -81,13 +74,11 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 									<td className={hiddenOnMobile}>{formattedPhone}</td>
 									<td className={hiddenOnDesktop}>
 										<button
-											className={`${
-												visibleDetails[employee.id] ? 'rotate-180' : ''
-											} w-min block mx-auto cursor-pointer`}
+											className={`${visibleDetails[employee.id] ? 'rotate-180' : ''} block mx-auto cursor-pointer`}
 											title='Exibir detalhes'
 											onClick={() => toggleDetails(employee.id)}
 										>
-											<IconArrowDown />
+											<img src={arrowDownIcon} width={20} height={11} />
 										</button>
 									</td>
 								</tr>
