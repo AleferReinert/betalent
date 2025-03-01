@@ -31,7 +31,7 @@ export function Search({ query, data, setQuery, setFilteredDataByQuery }: Search
 				type='text'
 				placeholder='Pesquisar'
 				value={query}
-				className='text-gray-20 placeholder-gray-20 focus:outline-none translate-y-[1px]'
+				className='text-gray-30 placeholder-gray-30 focus:outline-none translate-y-[1px]'
 				onChange={e => handleSearch(e)}
 			/>
 			<button title='Pesquisar' className='cursor-pointer px-4'>
