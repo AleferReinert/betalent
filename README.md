@@ -42,7 +42,11 @@ Disponível em [github.com/BeMobile/teste-pratico-frontend](https://github.com/B
 - **Vite:** Build tool rápida e otimizada para desenvolvimento front-end moderno.
 - **vite-plugin-svgr:** Para importar SVG's como componentes React.
 
+## Back-end
+
+Disponível em [github.com/AleferReinert/betalent-api](https://github.com/AleferReinert/betalent-api)
+
 ## URL do Projeto
 
-Explore o projeto no link: [BeTalent](https://betalent.netlify.app).
+Explore o projeto no link: [BeTalent](https://betalent.netlify.app)
 
