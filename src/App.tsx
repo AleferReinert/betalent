@@ -43,7 +43,9 @@ function App() {
 						<Search query={query} setQuery={setQuery} data={data} setFilteredDataByQuery={setFilteredDataByQuery} />
 					</div>
 					{loading ? (
-						<div className='bg-gray-10 w-full rounded-t animate-pulse h-[484px]' title='Buscando dados'></div>
+						<div className='bg-gray-10 w-full rounded-t animate-pulse h-[484px]' title='Buscando dados'>
+							<p className='p-4 text-gray-20'>Buscando dados...</p>
+						</div>
 					) : filteredDataByQuery.length === 0 ? (
 						<p>Nenhum resultado encontrado para "{query}".</p>
 					) : (
