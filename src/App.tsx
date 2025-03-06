@@ -11,12 +11,15 @@ function App() {
 	const [filteredDataByQuery, setFilteredDataByQuery] = useState<EmployeeProps[] | []>(data)
 	const [loading, setLoading] = useState(true)
 
+	// Fetches data from API. If error occurs, loads static data.
 	useEffect(() => {
-		// Fetches data from API. If error occurs, loads static data.
+		const controller = new AbortController()
+		const timeout = setTimeout(() => controller.abort(), 5000)
+
 		const fetchData = async () => {
 			try {
 				const endpoint = import.meta.env.VITE_API_URL + '/employees'
-				const response = await fetch(endpoint)
+				const response = await fetch(endpoint, { signal: controller.signal })
 				if (!response.ok) throw new Error('Erro ao obter dados da API')
 				const result = await response.json()
 				setData(result)
@@ -26,6 +29,7 @@ function App() {
 				setData(staticData)
 				setFilteredDataByQuery(staticData)
 			} finally {
+				clearTimeout(timeout)
 				setLoading(false)
 			}
 		}
