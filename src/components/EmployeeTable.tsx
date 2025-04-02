@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { ptBR } from 'date-fns/locale/pt-BR'
 import React, { useState } from 'react'
 import ArrowDownIcon from '../assets/icons/arrowDown.svg?react'
@@ -59,7 +59,7 @@ export function EmployeeTable({ employees }: EmployeeTableProps) {
 				</thead>
 				<tbody>
 					{employees.map(employee => {
-						const formattedAdmissionDate = format(employee.admission_date, 'dd/MM/yyyy', { locale: ptBR })
+						const formattedAdmissionDate = format(parseISO(employee.admission_date), 'dd/MM/yyyy', { locale: ptBR })
 						const formattedPhone = formatPhoneNumber(employee.phone)
 
 						return (
