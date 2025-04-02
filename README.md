@@ -50,10 +50,6 @@ Consiste em construir a visualização de uma tabela com dados que virão de uma
 
 Disponível em [github.com/AleferReinert/betalent-api](https://github.com/AleferReinert/betalent-api)
 
-## Desempenho 100%
-
-[PageSpeed Insights](https://pagespeed.web.dev/analysis/https-betalent-netlify-app/j1qo5ou6ea?form_factor=mobile)
-
 ## URL do Projeto
 
 Explore o projeto no link: [BeTalent](https://betalent.netlify.app).
