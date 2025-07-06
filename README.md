@@ -4,13 +4,8 @@ Projeto desenvolvido durante o processo seletivo da BeTalent.
 
 Consiste em construir a visualização de uma tabela com dados que virão de uma API simulada, em json-server.
 
-###### Requisitos:
-
-[github.com/bemobile/teste-pratico-frontend](https://github.com/bemobile/teste-pratico-frontend)
-
-###### Layout:
-
-[Visualizar no Figma](https://www.figma.com/design/yw6th52zE9bubewc6ayTg5/Teste-T%C3%A9cnico-Frontend-BeTalent?node-id=1-4&p=f&t=sWXq8uMvn5ZK8yKr-0)
+- [Requisitos](https://github.com/bemobile/teste-pratico-frontend)
+- [Layout](https://www.figma.com/design/yw6th52zE9bubewc6ayTg5/Teste-T%C3%A9cnico-Frontend-BeTalent?node-id=1-4&p=f&t=sWXq8uMvn5ZK8yKr-0)
 
 ## Começando
 
@@ -27,12 +22,8 @@ Consiste em construir a visualização de uma tabela com dados que virão de uma
     yarn install
    ```
 4. Defina as váriaveis de ambiente como em `.env.example`:
-   ```
-   // .env
-   VITE_API_URL=tobemodified
-   ```
-5. Inicie o servidor de desenvolvimento:
 
+5. Inicie o servidor de desenvolvimento:
    ```
    yarn dev
    ```
@@ -45,12 +36,4 @@ Consiste em construir a visualização de uma tabela com dados que virão de uma
 - **TypeScript:** Superconjunto de JavaScript que adiciona tipagem estática ao código.
 - **Vite:** Build tool rápida e otimizada para desenvolvimento front-end moderno.
 - **vite-plugin-svgr:** Para importar SVG's como componentes React.
-
-## API
-
-Disponível em [github.com/AleferReinert/betalent-api](https://github.com/AleferReinert/betalent-api)
-
-## URL do Projeto
-
-Explore o projeto no link: [BeTalent](https://betalent.netlify.app).
 
